@@ -1,0 +1,343 @@
+% 本笔记基本参考\cite{oller2019brief}。
+% \section{S矩阵及分波}
+% 用$| \mathbf{q},\sigma,m,s,\lambda\rangle$表示一个粒子态，粒子态的归一化如下
+% \begin{align}
+%    \langle \mathbf{q},\sigma,m,s,\lambda||\mathbf{q}^{\prime},\sigma^{\prime},m^{\prime},s^{\prime},\lambda^{\prime}\rangle=(2\pi)^3 2q^0 \delta^3(\mathbf{q}-\mathbf{q}^{\prime})\delta^{\sigma\sigma^{\prime}}\delta^{ss^{\prime}}\delta^{\lambda\lambda^{\prime}},
+% \end{align}
+% \subsection{S矩阵}
+% 在QFT中，从初态$|i\rangle$到末态的$|f\rangle$的几率由幺正矩阵S描述，S矩阵元定义为
+% \begin{align}
+%    S_{fi}=\langle f|S|i\rangle.
+% \end{align}
+% 在相互作用表象中，可表示为
+% \begin{align}
+%    S_{fi}=\frac{\langle f |e^{\mbox{i}\int d^4x \mL_{int}} |i\rangle}{\langle 0|e^{\mbox{i}\int d^4 x \mL_{int}}|0\rangle}.
+% \end{align}
+
+% 利用S矩阵定义T矩阵为
+% \begin{align}
+%    S=1+\mbox{i}T,
+% \end{align}
+% 则由S矩阵的幺正性可得
+% \begin{align}\label{tuni}
+%    T-T^{\dagger}=\mbox{i}TT^{\dagger},
+% \end{align}
+% 两边夹上$\langle f|$和$|i\rangle$，以及在右手边插入单位矩阵，则可以得到
+% \begin{align}
+%    \begin{aligned}
+%    \langle f|T|i\rangle - \langle f|T^{\dagger}|i\rangle  =
+%       &\mbox{i}\sum \int \Big[
+%       (2\pi)^4\delta(p_f-\sum_{i=1}^{n}q_i) \prod_{i=1}^n\frac{d^3q_i}{(2\pi)^3 2q_i^0}\Big]\\
+%       &\times \langle f|T|\mathbf{q}_1,\sigma_1,m_1,s_1,\lambda_1;\cdots;\mathbf{q}_n,\sigma_n,m_n,s_n,\lambda_n\rangle\\
+%       &\times\langle \mathbf{q}_1,\sigma_1,m_1,s_1,\lambda_1;\cdots;\mathbf{q}_n,\sigma_n,m_n,s_n,\lambda_n|T^{\dagger}|i\rangle,
+%    \end{aligned}
+% \end{align}
+% 用$\int dQ$表示末态相空间积分
+% \begin{align}
+%    \int dQ=\int (2\pi)^4\delta(p_f-\sum_{i=1}^{n}q_i)\prod_{i=1}^{n}\frac{d^3q_i}{(2\pi)^3 2q_i^0},
+% \end{align}
+% 两体末态相空间在质心系中，
+% \begin{align}
+%    dQ=\int\frac{d^3p_1}{(2\pi)^3 2p_1^0}\frac{d^3p_2}{(2\pi)^3 2p_2^0}(2\pi)^4\delta(p_1+p_2)=\frac{|\mathbf{p}_1|d\Omega}{16\pi^2\sqrt{s}},
+% \end{align}
+% 在两体散射中，选取质心参考系，则散射截面为
+% \begin{align}
+%    \sigma_{fi}=\frac{1}{4|\mathbf{p}_1\sqrt{s}}\int dQ_f |\langle f|T|\mathbf{p}_1,\sigma_1,m_1,s_1,\lambda_1;|\mathbf{p}_2,\sigma_2,m_2,s_2,\lambda_2\rangle|^2,
+% \end{align}
+% 对于给定初态$|i\rangle$，则所有可能末态的散射截面为
+% \begin{align}
+%    \sigma_{i}=\frac{1}{4|\mathbf{p}_1|\sqrt{s}}\sum_{f}\int dQ_f |\langle f|T||\mathbf{p}_1,\sigma_1,m_1,s_1,\lambda_1;|\mathbf{p}_2,\sigma_2,m_2,s_2,\lambda_2\rangle|^2,
+% \end{align}
+% 选取初态$|i\rangle$等于末态$|f\rangle$，则可以得到光学定理，
+% \begin{align}
+%    \Im T_{ii}=\frac{1}{2}\sum_f\int dQ_f|T_{fi}|^2=2|\mathbf{p}_1|\sqrt{s}\sigma_i.
+% \end{align}
+% 其中$\Im$表示取虚部。
+
+% \subsection{分波}
+% 用$|\mathbf{p},\sigma_1\sigma_2\rangle$表示一个两粒子态，其中$\mathbf{p}$表示质心系中三动量，各自静止系中自旋第三分量表示为$\sigma_1,\sigma_2$的粒子，定义一个两体态$|lm,\sigma_1\sigma_2\rangle$
+% \begin{align}
+%    |lm,\sigma_1\sigma_2\rangle = \frac{1}{\sqrt{4\pi}}\int d \hat{\mathbf{p}} Y_l^m(\hat{\mathbf{p}})|\hat{\mathbf{p}},\sigma_1\sigma_2\rangle,
+% \end{align}
+% 其中$l$为轨道角动量，$m$为其第三分量。
+
+% 旋转算符$R$作用在态$|\mathbf{p},\sigma_1\sigma_2\rangle$，结果为
+% \begin{align}
+%    R|\mathbf{p},\sigma_1 \sigma_2 \rangle = \sum_{\sigma_1^{\prime},\sigma_2^{\prime}} D^{(s_1)}(R)_{\sigma_1^{\prime}\sigma_1} D^{(s_2)}(R)_{\sigma_2^{\prime}\sigma_2} |\mathbf{p}^{\prime},\sigma_1^{\prime}\sigma_2^{\prime}\rangle,
+% \end{align}
+% 则$R$作用在$|lm,\sigma_1\sigma_2\rangle$上，结果为
+% \begin{align}
+%    \begin{aligned}
+%    R|lm,\sigma_1\sigma_2\rangle = &\sum_{\sigma_1^{\prime},\sigma_2^{\prime}} D^{(s_1)}(R)_{\sigma_1^{\prime}\sigma_1} D^{(s_2)}(R)_{\sigma_2^{\prime}\sigma_2} \frac{1}{\sqrt{4\pi}}\int d \hat{\mathbf{p}^{\prime}} Y_l^m(R^{-1}\hat{\mathbf{p}}^{\prime})|\hat{\mathbf{p}}^{\prime},\sigma_1^{\prime}\sigma_2^{\prime}\rangle\\
+%    =&\sum_{\sigma_1^{\prime},\sigma_2^{\prime},m^{\prime}} D^{(l)}(R)_{mm^{\prime}} D^{(s_1)}(R)_{\sigma_1^{\prime}\sigma_1} D^{(s_2)}(R)_{\sigma_2^{\prime}\sigma_2} |lm^{\prime},\sigma_1^{\prime}\sigma_2^{\prime}\rangle.
+%    \end{aligned}
+% \end{align}
+
+% 首先考虑两粒子自旋耦合，再考虑总自旋和轨道角动量的耦合，利用CG系数将$|lm,\sigma_1\sigma_2\rangle$转换到$|J\mu,lS\rangle$基底，有
+% \begin{align}
+%    |J\mu,lS\rangle=\sum_{\sigma_1,\sigma_2,m,M}(\sigma_1\sigma_2M|s_1s_2S)(mM\mu|lSJ)|lm,\sigma_1\sigma_2\rangle,
+% \end{align}
+% 其中$s_1,s_2$表示两粒子的自旋，$\sigma_1,\sigma_2$分别表示自旋的第三分量，$S$表示两粒子的总自旋，$M$表示总自旋的第三分量，$J$为总角动量，$\mu$为总角动量的第三分量。
+
+% 当考虑同位旋结构时，转换关系为
+% \begin{align}\label{pwatr}
+%    \begin{aligned}
+%    |J\mu,lS,It_3\rangle=&\frac{1}{\sqrt{4\pi}}\sum_{\sigma_1,\sigma_2,m,\atop M,\alpha_1,\alpha_2}\int d\hat{\mathbf{p}}Y_l^m(\hat{\mathbf{p}})(\sigma_1\sigma_2M|s_1s_2S)(mM\mu|lSJ)\\
+%    \times&(\alpha_1\alpha_2t_3|\tau_1\tau_2I)|\mathbf{p},\sigma_1\sigma_2,\alpha_1\alpha_2\rangle.
+%    \end{aligned}
+% \end{align}
+
+% 由于两体末态相空间积分的结果，因此我们将两体态归一化为（忽略离散指标）
+% \begin{align}
+%    \langle \mathbf{p}^{\prime},\sigma_1^{\prime}\sigma_2^{\prime},\alpha_1^{\prime}\alpha_2^{\prime}|\mathbf{p},\sigma_1\sigma_2,\alpha_1\alpha_2\rangle = \frac{16\pi^2\sqrt{s}}{|\mathbf{p}|} \delta(\hat{\mathbf{p}}^{\prime}-\hat{\mathbf{p}}),
+% \end{align}
+% 因此，$|J\mu,lS,It_3\rangle$态的归一化为
+% \begin{align}
+%    \langle J^{\prime}\mu^{\prime},l^{\prime}S^{\prime},I^{\prime}t_3^{\prime}|J\mu,lS,It_3\rangle = \frac{4\pi\sqrt{s}}{|\mathbf{p}|} \delta_{J^{\prime}J}\delta_{\mu^{\prime}\mu}\delta_{l^{\prime}l}\delta_{S^{\prime}S}\delta_{I^{\prime}I}\delta_{t_3^{\prime}t_3}.
+% \end{align}
+
+% 考虑分波振幅，从$J\bar{l}\bar{S}I$跃迁到$JlSI$的几率由矩阵元$T^{(JI)}_{lS,\bar{l}\bar{S}}$给出
+% \begin{align}
+%    T^{(JI)}_{lS,\bar{l}\bar{S}}=\langle J\mu,lS,It_3|T|J\mu,\bar{l}\bar{S},It_3\rangle,
+% \end{align}
+% 代入(\ref{pwatr})式，可得
+% \begin{align}
+%    \begin{aligned}
+%       T^{(JI)}_{lS,\bar{l}\bar{S}}=& \frac{1}{4\pi}\sum\int d\hat{\mathbf{p}}^{\prime} \int d\hat{\mathbf{p}} Y_l^m(\hat{\mathbf{p}}^{\prime})^* Y_{\bar{l}}^{\bar{m}}(\hat{\mathbf{p}}) (\sigma_1\sigma_2M|s_1s_2S)(mM\mu|lSJ)(\alpha_1\alpha_2t_3|\tau_1\tau_2I)\\
+%       \times& (\bar{\sigma}_1\bar{\sigma}_2\bar{M}|\bar{s}_1\bar{s}_2\bar{S})(\bar{m}\bar{M}\mu|\bar{l}\bar{S}J)(\bar{\alpha}_1\bar{\alpha}_2t_3|\bar{\tau}_1\bar{\tau}_2I) \langle \hat{\mathbf{p}}^{\prime},\sigma_1\sigma_2,\alpha_1\alpha_2|T|\mathbf{p},\bar{\sigma}_1\bar{\sigma}_2,\bar{\alpha}_1\bar{\alpha}_2 \rangle,
+%    \end{aligned}
+% \end{align}
+% 利用$T$矩阵的旋转不变性，以及$D_{m^{\prime}m}^{(l)}$的组合公式
+% \begin{align}
+%    \sum_{m_1,m_2} (m_1 m_2 M|l_1 l_2 L) D^{(l_1)}_{m^{\prime}_1 m_1}(R) D^{(l_2)}_{m^{\prime}_2 m_2}(R) = 
+%    \sum_{M^{\prime}} (m_1^{\prime} m_2^{\prime} M^{\prime}|l_1 l_2 L) D^{(L)}_{M^{\prime}M}(R), 
+% \end{align}
+% 可以将上式化为
+% % \begin{align}
+% %    \begin{aligned}
+% %      并不能直接得到下面的公式，还需要一步\frac{1}{2J+1}\sum_
+% %      {\mu=-J}^{J}，以及利用旋转矩阵的正交性才能得到。
+% %    \end{aligned}
+% % \end{align}
+% \begin{align}
+%    \begin{aligned}
+%    T^{(JI)}_{lS,\bar{l}\bar{S}} =& \frac{Y^0_{\bar{l}}(\hat{\mathbf{z}})}{2J+1} 
+%    \sum_{\substack{
+%          \sigma_1,\sigma_2,\bar{\sigma}_1, \\
+%          \bar{\sigma}_2,\alpha_1,\alpha_2, \\
+%          \bar{\alpha}_1,\bar{\alpha}_2,m}}\int d\hat{\mathbf{p}}^{\prime\prime} \langle \hat{\mathbf{p}}^{\prime\prime},\sigma_1\sigma_2,\alpha_1\alpha_2|T||\hat{\mathbf{p}}|\hat{\mathbf{z}},\bar{\sigma}_1\bar{\sigma}_2,\bar{\alpha}_1\bar{\alpha}_2\rangle \\
+%          \times& Y_l^m(\hat{\mathbf{p}}^{\prime\prime})^* (\sigma_1\sigma_2M|s_1s_2S)(mM\bar{M}|lSJ)(\bar{\sigma}_1\bar{\sigma}_2\bar{M}|\bar{s}_1\bar{s}_2\bar{S}) \\
+%          \times& (0\bar{M}\bar{M}|\bar{l}\bar{S}J)(\alpha_1\alpha_2t_3|\tau_1\tau_2I)(\bar{\alpha}_1\bar{\alpha}_2t_3|\bar{\tau}_1\bar{\tau}_2I).
+%    \end{aligned}
+% \end{align}
+
+% \subsubsection{分波振幅的幺正性}
+% 由（\ref{tuni}）式可得，
+% \begin{align}
+%    2\Im T^{(JI)}_{lS,\bar{l}\bar{S}}=\langle J\mu,lS,It_3|TT^{\dagger}|J\mu,\bar{l}\bar{S},It_3\rangle,
+% \end{align}
+% 在右边插入两体态的单位元，可得
+% \begin{align}
+%    \Im T^{(JI)}_{lS,\bar{l}\bar{S}}= \sum_{l^{\prime},S^{\prime}}\frac{|\mathbf{p}^{\prime\prime}|}{8\pi\sqrt{s}}T^{(JI)}_{lS,l^{\prime}S^{\prime}} T^{\dagger(JI)}_{l^{\prime}S^{\prime},\bar{l}\bar{S}},
+% \end{align}
+% 引入相空间因子算符
+% \begin{align}
+%    \rho_{ij}=\frac{|\mathbf{p}^{\prime}|}{8\pi\sqrt{s}}\delta_{ij},
+% \end{align}
+% 则有
+% \begin{align}
+%    T^{(JI)}-T^{\dagger(JI)} = 2 \mbox{i} T^{(JI)}\rho T^{\dagger(JI)}.
+% \end{align}
+
+% 利用$T$矩阵的分波振幅，可以重新定义$S$矩阵的分波振幅如下
+% \begin{align}
+%    S^{(JI)} = I + 2\mbox{i} \rho^{\frac{1}{2}}T^{(JI)}\rho^{\frac{1}{2}},
+% \end{align}
+% 现在$S$矩阵的对角元为$\eta_{i} e^{2\mbox{i}\delta_{i}}$，其中$\eta_{i}$描述非弹性度，$\delta_{i}$表示相移。
+
+% 当考虑全同粒子散射时，需要在（\ref{pwatr}）前乘上一个$\frac{1}{\sqrt{2}}$因子。
+
+% \subsubsection{LS方程}
+% 假设系统哈密顿量为$H=H_0-v$，以及\textcolor{blue}{$r_0(z)=(H_0 - z)^{-1}\text{，}r(z)=(H-z)^{-1}$}，则LS方程可以写为
+% \begin{align}
+%    \label{lse1} T(z) = v + vr_0(z)T(z),\\
+%    \label{lse2} T(z) = v + T(z)r_0(z)v.
+% \end{align}
+
+% 简写分波振幅为
+% \begin{align}
+%    T_{ij}(k,k^{\prime};z) = \langle k,\lambda_i|t(z)|k^{\prime},\lambda_j \rangle,
+% \end{align}
+% 其中$k$为三动量的模，$\lambda$为所有的离散指标。代入（\ref{lse1}）和（\ref{lse2}）公式，则可以得到
+% \begin{align}
+%    T_{ij}(k,k^{\prime};z) =& v_{ij}(k,k^{\prime}) + \frac{\mu}{\pi^2}\sum_n\int_0^{\infty} \frac{q^2\mbox{d}q}{q^2-2\mu z}v_{in}(k,q)T_{nj}(q,k^{\prime};z)\\
+%    =& v_{ij}(k,k^{\prime}) + \frac{\mu}{\pi^2}\sum_n\int_0^{\infty} \frac{q^2\mbox{d}q}{q^2-2\mu z}T_{in}(k,q;z)v_{nj}(q,k^{\prime}).
+% \end{align}
+% 结合Hilbert恒等式
+% \begin{align}
+%    T(z_1)-T(z_2) = (z_1-z_2)T(z_1)r_0(z_1)r_0(z_2)T(z_2),
+% \end{align}
+% 以及T矩阵的性质
+% \begin{align}
+%    T_{ij}(k,k^{\prime};z^*) = T_{ji}(k,k^{\prime};z)^*
+% \end{align}
+% 可得
+% \begin{align}
+%    \begin{aligned}
+%    T_{ij}(k,k^{\prime};z)-T_{ij}(k,k^{\prime};z)^* = &2\mbox{i}\Im z\frac{2\mu^2}{\pi^2}\sum_n \int_0^{\infty} \frac{q^2\mbox{d}q}{(q^2-2\mu z)(q^2-2\mu z*)} \\
+%    \times & T_{in}(k,q;z)T_{nj}(q,k^{\prime};z)^*.
+%    \end{aligned}
+% \end{align}
+% 假设$T$矩阵分波振幅是时间反演不变的，即$T_{ij}(k,k^{\prime};z)=T_{ji}(k^{\prime},k;z)$，则可以得到
+% \begin{align}
+%    \Im T_{ij}(k,k^{\prime};z) = \Im z \frac{2\mu^2}{\pi^2} \sum_n \int_0^{\infty} \frac{q^2 \mbox{d}q}{(q^2-2\mu \Re z)^2 + (2\mu \Im z)^2} T_{in}(k,q;z)T_{jn}(k^{\prime},q;z)^*.
+% \end{align}
+% 利用公式
+% \begin{align}
+%    \lim_{\Im z \to 0^+} \frac{2\mu \Im z}{(q^2 - 2\mu \Re z)^2+(2\mu \Im z)^2} = \pi \delta(q^2- 2\mu \Re z),
+% \end{align}
+% 可以得到
+% \begin{align}\label{offuni}
+%    \Im T_{ij}(k,k^{\prime};z) = \theta(E)\frac{\mu \kappa}{2 \pi}\sum_n T_{in}(k,\kappa;z)T_{jn}(k^{\prime},\kappa;z)^*,
+% \end{align}
+% 其中$\kappa=\sqrt{2\mu \Re z}\text{，}z=E+\mbox{i}\epsilon$，上式即为\textcolor{blue}{离壳幺正化关系}。
+% 式（\ref{offuni}）的两个特例是半离壳幺正化和在壳幺正化关系。对于半离壳幺正化，我们取$E=k^{\prime 2}/2\mu$，因此$\kappa = k^{\prime}$，此时我们有
+% \begin{align}
+%    \Im T_{ij}(k,\kappa;E+\mbox{i}\epsilon) = \theta(E)\frac{\mu \kappa}{2 \pi}\sum_n T_{in}(k,\kappa;E+\mbox{i}\epsilon)T_{jn}(\kappa,\kappa;E+\mbox{i}\epsilon)^*.
+% \end{align}
+% 再在半离壳幺正化中，取$k^{\prime}=k$，即可得到在壳幺正化关系，
+% \begin{align}
+%    \Im T_{ij}(\kappa,\kappa;E+\mbox{i}\epsilon) = \theta(E)\frac{\mu \kappa}{2 \pi}\sum_n T_{in}(\kappa,\kappa;E+\mbox{i}\epsilon)T_{jn}(\kappa,\kappa;E+\mbox{i}\epsilon)^*.
+% \end{align}
+% \section{Kallen-Lehmann表示}
+% 该篇主要参考\cite{Zwicky:2016lka} \cite{2015量子场论导论}。
+
+% 考虑2$\to$2标量粒子散射过程，散射矩阵写作
+% \begin{align}
+%    _{\mbox{out}}\langle p_1,p_2|q_1,q_2\rangle_{\mbox{in}} = _{\mbox{out}}\langle p_1,p_2|S|q_1,q_2\rangle_{\mbox{out}},
+% \end{align}
+% 其中，$p_1^2=p_2^2=q_1^2=q_2^2=m^2$满足质壳条件。利用LSZ约化，我们可以重新将S矩阵写作
+% \begin{align}
+%    \begin{aligned}
+%    _{\mbox{out}}\langle p_1,p_2|q_1,q_2\rangle_{\mbox{in}}=&\left(\frac{-\mathrm{i}}{\sqrt{Z}}\right)^{4}\int_{x_1,x_2,y_1,y_2}e^{-\mathrm{i}(q_1\cdot x_1+q_2\cdot x_2-p_1\cdot y_1-p_2\cdot y_2)}K_{x_1}K_{x_2}K_{y_1}K_{y_2}\\
+%    &\times \langle T\phi(x_1)\phi(x_2)\phi(y_1)\phi(y_2)\rangle,
+%    \end{aligned}
+% \end{align}
+% 其中$K_{x_1}=q_1^2-m^2$。两点关联函数是外动量的函数，如$p_{1,2}^2,p_1\cdot p_2$等等。外动量实际上定义为$p_1^2=\mbox{Re}[p_1^2]+i\epsilon$，可以解析延拓到复平面上。
+ 
+% 简单考虑两点关联函数，
+% \begin{align}
+%    \begin{aligned}
+%    G(x,y)=& \langle T\phi(x)\phi(y)\rangle \\
+%          =& \theta(t-t^{\prime})W(x,y)+\theta(t^{\prime}-t)W(y,x),
+%    \end{aligned}
+% \end{align}
+% 其中$W(x,y)=\langle \phi(x)\phi(y) \rangle$。往$W(x,y)$中插入一组物理态（包含单粒子态以及多粒子态）完备基，可以得到
+% \begin{align}
+%    W(x,y)=\int\frac{\mbox{d}^4q}{(2\pi)^3}\rho(q)e^{-\mbox{i}q\cdot (x-y)},
+% \end{align}
+% 其中谱密度$\rho(q)$定义为，
+% \begin{align}
+%    \rho(q^2)=(2\pi)^3\sum_n\delta^4(q-p_n)|\langle 0|\phi(0)|n\rangle|^2,
+% \end{align}
+% 将单粒子态分离出来考虑，则单粒子态的贡献
+% \begin{align}
+%    W^s(x,y)=\frac{Z}{(2\pi)^3}\int\frac{\mbox{d}^3k}{2\omega}e^{-\mbox{i}k\cdot (x-y)},
+% \end{align}
+% 同理可以得到$W^s(y,x)$。因此单粒子态对格林函数的贡献为
+% \begin{align}
+%    G^s(x,y)=iZ\Delta_F(x-y),
+% \end{align}
+% 进一步考虑多粒子态对格林函数的贡献，由于谱密度为Lorentz不变的，且具有如下性质，
+% \begin{align}
+%    \begin{aligned}
+%       \rho(q^2)=Z\delta(q^2-\mu^2)+\theta(q_0)\sigma(q^2) \\
+%       \sigma(q^2)=0,\  \mbox{如果} q^2\leq 0,
+%    \end{aligned}   
+% \end{align}
+% 因此对于两点关联函数则有，
+% \begin{align}
+%    \begin{aligned}
+%       G(x,y)=&\mbox{i}\Delta_F^{\prime}(x-y) \\
+%              =  &\mbox{i}Z\Delta_F(x-y;\mu)+\mbox{i}\int_{\mu_{th}^2}^{\infty}\mbox{d}\mu_n^2\sigma(\mu_n^2)\Delta_F(x-y;\mu_n^2),
+%    \end{aligned}
+% \end{align}
+% 其中第一项是质量为$\mu$的单粒子态的贡献，而第二项积分则是多粒子态的贡献，积分下限$\mu_{th}$是产生多粒子的阈值。再利用Fourier变换，可以得到
+% \begin{align}
+%    \Delta_F^{\prime}(k^2)=-\frac{Z}{\mu^2-k^2}-\int_{\mu_{th}^2}^{\infty}\mbox{d}\mu_n^2 \frac{\sigma(\mu_n^2)}{\mu_n^2-k^2},
+% \end{align}
+% 再令$k^2\rightarrow k^2 \pm \mbox{i}\epsilon$，得到
+% \begin{align}
+%    \Delta_F^{\prime}(k^2+\mbox{i}\epsilon)=-\frac{Z}{\mu^2-k^2-\mbox{i}\epsilon}-\int_{\mu_{th}^2}^{\infty}\mbox{d}\mu_n^2 \frac{\sigma(\mu_n^2)}{\mu_n^2-k^2-\mbox{i}\epsilon} \\
+%    \Delta_F^{\prime}(k^2-\mbox{i}\epsilon)=-\frac{Z}{\mu^2-k^2+\mbox{i}\epsilon}-\int_{\mu_{th}^2}^{\infty}\mbox{d}\mu_n^2 \frac{\sigma(\mu_n^2)}{\mu_n^2-k^2+\mbox{i}\epsilon},
+% \end{align}
+% 由于$Z$和$\sigma(s)$(将$k^2$向复平面$s$延拓)都是实的，因此
+% \begin{align}
+%    (\Delta_F^{\prime}(s))^*=\Delta_F^{\prime}(s^*),
+% \end{align}
+% 从而有
+% \begin{align}
+%    \Delta_F^{\prime}(k^2+\mbox{i}\epsilon)-\Delta_F^{\prime}(k^2-\mbox{i}\epsilon)=2\mbox{i}\mbox{Im} \Delta_F^{\prime}(k^2+\mbox{i}\epsilon),
+% \end{align}
+% 从而可以将格林函数积分利用其虚部表达，即色散关系形式
+% \begin{align}\label{dis}
+%    \Delta_F^{\prime}(s)=\frac{1}{\pi}\int_0^{\infty}\mbox{d}s^{\prime}\frac{\mbox{Im}\Delta_F^{\prime}(s^{\prime})}{s-s^{\prime}},
+% \end{align}
+% % 也可以从另一个角度获得色散关系(\ref{dis})。如果假设$\Delta_F(s)$在$s$复平面解析，仅在正实轴上有极点和割线，则取积分回路沿正实轴的上岸到无穷远绕一个大圆圈回到下岸，再回到原点，假设$\Delta_F^{\prime}(s)$在无穷远处趋于0，则应用Cauchy定理可以得到(\ref{dis})式。
+
+
+
+% \begin{figure}[H]\centering
+ 
+
+
+
+
+% \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+% \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+% %uncomment if require: \path (0,310); %set diagram left start at 0, and has height of 310
+
+% %Shape: Axis 2D [id:dp5961648792653844] 
+% \draw  (152,145.28) -- (507.8,145.28)(329.19,35.2) -- (329.19,250.2) (500.8,140.28) -- (507.8,145.28) -- (500.8,150.28) (324.19,42.2) -- (329.19,35.2) -- (334.19,42.2)  ;
+% %Shape: Arc [id:dp13084014992293258] 
+% \draw  [draw opacity=0] (441.21,151.22) .. controls (439.79,199.61) and (390.91,237.12) .. (330.31,235.57) .. controls (268.42,234) and (217.75,192.29) .. (217.14,142.42) .. controls (216.52,92.56) and (266.18,53.41) .. (328.07,54.99) .. controls (385.33,56.45) and (432.98,92.25) .. (440.28,137.1) -- (329.19,145.28) -- cycle ; \draw   (441.21,151.22) .. controls (439.79,199.61) and (390.91,237.12) .. (330.31,235.57) .. controls (268.42,234) and (217.75,192.29) .. (217.14,142.42) .. controls (216.52,92.56) and (266.18,53.41) .. (328.07,54.99) .. controls (385.33,56.45) and (432.98,92.25) .. (440.28,137.1) ;
+% %Straight Lines [id:da5028666364803356] 
+% \draw    (377.8,137.2) -- (440.28,137.1) ;
+% %Straight Lines [id:da4745559570066227] 
+% \draw    (377.79,152.87) -- (441.21,151.22) ;
+% %Shape: Arc [id:dp8295165279249646] 
+% \draw  [draw opacity=0] (377.79,152.87) .. controls (376.87,152.98) and (375.92,153.03) .. (374.94,153.03) .. controls (367.08,153.03) and (360.71,149.45) .. (360.71,145.03) .. controls (360.71,140.61) and (367.09,137.04) .. (374.95,137.04) .. controls (375.92,137.04) and (376.88,137.09) .. (377.8,137.2) -- (374.94,145.04) -- cycle ; \draw   (377.79,152.87) .. controls (376.87,152.98) and (375.92,153.03) .. (374.94,153.03) .. controls (367.08,153.03) and (360.71,149.45) .. (360.71,145.03) .. controls (360.71,140.61) and (367.09,137.04) .. (374.95,137.04) .. controls (375.92,137.04) and (376.88,137.09) .. (377.8,137.2) ;
+% \draw   (406.64,90.2) -- (403.38,79.7) -- (413.8,83.2) ;
+% \draw   (332.78,141.29) -- (340.89,148.6)(340.43,140.96) -- (333.25,148.93) ;
+
+% % Text Node
+% \draw (511,155) node [anchor=north west][inner sep=0.75pt]   [align=left] {Re(s)};
+% % Text Node
+% \draw (350,18) node [anchor=north west][inner sep=0.75pt]   [align=left] {Im(s)};
+% % Text Node
+% \draw (331.13,148.68) node [anchor=north west][inner sep=0.75pt]  [xslant=0.02]  {$\mu ^{2}$};
+% % Text Node
+% \draw (354,149.4) node [anchor=north west][inner sep=0.75pt]    {$\mu _{t}{}_{h}$};
+
+
+% \end{tikzpicture}
+
+% \end{figure}  
+
+% \section{交叉对称及同位旋结构}
+% 考虑$\pi\pi$
+
+% \newpage
+
+% \appendix
+% \section{复数知识}
+% \subsection{Schwarz反射定理}
+% 假设有一个定义在上半复平面$D$上的解析函数$f(z)$，若定义域$D$能够连续过渡到实轴且在实轴上有着良定义的实函数值，则可以将定义域$D$关于实轴对称的另外半平面$D^*$也纳入定义域，且解析函数$f(z)$延拓后的定义域$D\cup D^*$关于实轴对称，且总满足$f(z^*)=f^*(z)$，因此就会有
+% \begin{align}
+%    f(x+\mbox{i}\varepsilon)-f(x-\mbox{i}\varepsilon)=2\mbox{i}\Im f(x+\mbox{i}\varepsilon),
+% \end{align}
+% 这就是Schwarz反射。
+
+% \textcolor{red}{Schwarz反射定理在关联函数中的具体应用，待完成......}
+% \subsection{Sugawara-Kanazawa定理}
